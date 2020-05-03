@@ -1,16 +1,97 @@
 package com.junzixiehui.doraon.util.ip;
 
+import com.vip.vjtools.vjkit.number.NumberUtil;
+import com.vip.vjtools.vjkit.text.MoreStringUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
+import java.util.List;
 
 @Slf4j
 public final class IPUtils {
 
 	private IPUtils() {
+	}
+
+	public static long toLong(String ip) {
+		String[] strings = ip.split("\\.");
+		StringBuilder builder = new StringBuilder();
+		for (String s : strings) {
+			String b = Integer.toBinaryString(Integer.parseInt(s));
+			if (b.length() < 8) {
+				for (int i = 0; i < 8 - b.length(); i++) {
+					builder.append("0");
+				}
+			}
+			builder.append(b);
+		}
+		return Long.valueOf(builder.toString(), 2);
+	}
+
+	public static String toStringIp(long ip) {
+		StringBuilder builder = new StringBuilder(Long.toBinaryString(ip));
+		int l = builder.length();
+		if (l < 32) {
+			for (int i = 0; i < 32 - l; i++) {
+				builder.insert(0, "0");
+			}
+		}
+		StringBuilder ipBuilder = new StringBuilder();
+		for (int i = 0; i < 32; i += 8) {
+			if (i != 0) {
+				ipBuilder.append(".");
+			}
+			String s = builder.substring(i, i + 8);
+			ipBuilder.append(Integer.valueOf(s, 2));
+		}
+		return ipBuilder.toString();
+	}
+
+	/**
+	 * int转换到IPV4 String, from Netty NetUtil
+	 */
+	public static String intToIpv4String(int i) {
+		return new StringBuilder(15).append((i >> 24) & 0xff).append('.').append((i >> 16) & 0xff).append('.')
+				.append((i >> 8) & 0xff).append('.').append(i & 0xff).toString();
+	}
+
+	/**
+	 * Ipv4 String 转换到int
+	 */
+	public static int ipv4StringToInt(String ipv4Str) {
+		byte[] byteAddress = ip4StringToBytes(ipv4Str);
+		if (byteAddress == null) {
+			return 0;
+		} else {
+			return NumberUtil.toInt(byteAddress);
+		}
+	}
+
+	/**
+	 * Ipv4 String 转换到byte[]
+	 */
+	private static byte[] ip4StringToBytes(String ipv4Str) {
+		if (ipv4Str == null) {
+			return null;
+		}
+
+		List<String> it = MoreStringUtil.split(ipv4Str, '.', 4);
+		if (it.size() != 4) {
+			return null;
+		}
+
+		byte[] byteAddress = new byte[4];
+		for (int i = 0; i < 4; i++) {
+			int tempInt = Integer.parseInt(it.get(i));
+			if (tempInt > 255) {
+				return null;
+			}
+			byteAddress[i] = (byte) tempInt;
+		}
+		return byteAddress;
 	}
 
 	public static final String getLocalIpv4() {

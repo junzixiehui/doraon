@@ -19,6 +19,8 @@
         <!-- Maven插件版本定义 apache-maven-3.3.3版本默认版本插件版本 -->
         <maven_source_plugin_version>2.6</maven_source_plugin_version>
         <maven_compiler_plugin_version>3.1</maven_compiler_plugin_version>
+
+        <fastjson.version>1.2.39</fastjson.version>
     </properties>
 
     <dependencies>
@@ -26,6 +28,30 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.9.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.vip.vjtools</groupId>
+            <artifactId>vjkit</artifactId>
+            <version>1.0.5</version>
         </dependency>
     </dependencies>
 </project>
