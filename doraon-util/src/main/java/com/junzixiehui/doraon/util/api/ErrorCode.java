@@ -1,5 +1,7 @@
 package com.junzixiehui.doraon.util.api;
 
+import com.sun.tools.classfile.Code_attribute;
+
 import java.io.Serializable;
 
 /**
@@ -21,8 +23,10 @@ public class ErrorCode implements Serializable {
     public static final ErrorCode UPLOAD_SIZE = new ErrorCode("40008", "文件大小不可超过【%s】M");
 
     public static final ErrorCode SERVER = new ErrorCode("50000", "服务器异常【%s】");
+    public static final ErrorCode SUCCESS = new ErrorCode("0", "success");
+	public static final ErrorCode OPEN_FAIL = new ErrorCode("4011", "操作失败：%s");
 
-    private String code;
+	private String code;
     private String message;
 
     public ErrorCode(String code, String message) {
