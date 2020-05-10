@@ -18,6 +18,7 @@
         <module>doraon-excel</module>
         <module>doraon-business-common</module>
         <module>doraon-code-generate</module>
+        <module>doraon-business-frame</module>
     </modules>
 
     <properties>
