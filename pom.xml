@@ -19,12 +19,14 @@
         <module>doraon-business-common</module>
         <module>doraon-code-generate</module>
         <module>doraon-business-frame</module>
+        <module>doraon-test</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <knife4j.version>2.0.2</knife4j.version>
     </properties>
 
     <dependencies>
