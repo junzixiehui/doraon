@@ -9,9 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.UUID;
 
 /**
- * @author zhoutao
  * @Description: redis分布式锁
- * @date 2018/5/28
  */
 @Slf4j
 @Component

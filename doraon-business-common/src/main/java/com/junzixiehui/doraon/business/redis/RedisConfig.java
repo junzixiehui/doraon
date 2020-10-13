@@ -12,9 +12,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 import redis.clients.jedis.JedisPoolConfig;
 
 /**
- * @author zhoutao
  * @Description: redisTemplate配置
- * @date 2018/3/9
  */
 @Configuration
 @Getter

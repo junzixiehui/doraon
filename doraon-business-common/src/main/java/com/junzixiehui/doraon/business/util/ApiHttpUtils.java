@@ -14,7 +14,6 @@ import java.util.Map;
 
 /**
  * @author: qulibin
- * @description: edaijia API请求
  * @date: 下午7:57 2018/9/6
  * @modify：
  */

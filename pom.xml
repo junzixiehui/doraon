@@ -20,6 +20,7 @@
         <module>doraon-code-generate</module>
         <module>doraon-business-frame</module>
         <module>doraon-test</module>
+        <module>doraon-example</module>
     </modules>
 
     <properties>

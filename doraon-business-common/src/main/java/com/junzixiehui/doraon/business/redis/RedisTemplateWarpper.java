@@ -15,7 +15,6 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author zhoutao
  * @Description: 封装RedisTemplate, 它有些方法定义不合理<br>
  * 注意：
  * 1、所有方法给key默认加上前缀
