@@ -2,6 +2,7 @@ package com.junzixiehui.doraon.util.text;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -10,6 +11,7 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 
 import java.io.StringWriter;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -168,4 +170,78 @@ public class XmlUtils {
             }
         }
     }
+
+
+
+	/**
+	 * 根据根节点名称将linked map转换成xml报文
+	 * 注意: 只支持简单的一个层级的xml
+	 *
+	 * @param rootNodeName
+	 * @param linkedMap
+	 * @return
+	 */
+	public static String linkedMapToOneLevelXml(String rootNodeName, LinkedHashMap<String, String> linkedMap) {
+		String xmlStr = "";
+		if (StringUtils.isBlank(rootNodeName) || MapUtils.isEmpty(linkedMap)) {
+			return xmlStr;
+		}
+		StringBuilder sb = new StringBuilder(XML_HEAD);
+		sb.append("<").append(rootNodeName).append(">");
+		for (Map.Entry<String, String> entry : linkedMap.entrySet()) {
+			sb.append("<").append(entry.getKey()).append(">");
+			sb.append(entry.getValue());
+			sb.append("</").append(entry.getKey()).append(">");
+		}
+		sb.append("</").append(rootNodeName).append(">");
+		xmlStr = sb.toString();
+		if (log.isDebugEnabled()) {
+			log.debug("========linkedMapToOneLevelXml:" + xmlStr);
+		}
+		return xmlStr;
+	}
+
+	/**
+	 * 根据根节点名称将xml转换成linked map
+	 * 注意：多层级的xml，返回的map的key名称是带有xml命名空间的，比如result.code，result.msg
+	 *
+	 * @param xml
+	 * @return
+	 */
+	public static LinkedHashMap<String, String> xmlToLinkedMap(String xml) {
+		if (StringUtils.isBlank(xml)) {
+			return null;
+		}
+		LinkedHashMap<String, String> linkedMap = Maps.newLinkedHashMap();
+		try {
+			Document doc = DocumentHelper.parseText(xml);
+			Element root = doc.getRootElement();
+			for (Object obj : root.elements()) {
+				recursiveSubElement((Element) obj, root.getName(), linkedMap);
+			}
+		} catch (Exception e) {
+			log.error(String.format("xmlToLinkedMap error.[%s]", xml), e);
+		}
+		return linkedMap;
+	}
+
+	/**
+	 * 递归xml转map
+	 *
+	 * @param element
+	 * @param parentName
+	 * @param linkedMap
+	 */
+	private static void recursiveSubElement(Element element, String parentName,
+			LinkedHashMap<String, String> linkedMap) {
+		String key = parentName + "." + element.getName();
+		if (element.isTextOnly()) {
+			linkedMap.put(key, element.getTextTrim());
+			return;
+		}
+		for (Object obj : element.elements()) {
+			Element sub = (Element) obj;
+			recursiveSubElement(sub, key, linkedMap);
+		}
+	}
 }
