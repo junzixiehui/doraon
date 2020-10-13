@@ -16,9 +16,13 @@ import java.util.Arrays;
  *
  * @author L.cm
  */
-public class AesUtil {
+public class AESUtil {
 
-	private AesUtil() {
+	private static final String ALGORITHM = "AES";
+	private static final String ALGORITHM_MODE_PADDING = "AES/ECB/PKCS5Padding";
+	private static final String ALGORITHM_NO_PADDING = "AES/CBC/NoPadding";
+
+	private AESUtil() {
 	}
 
 	public static byte[] encrypt(byte[] content, String aesTextKey) {
@@ -48,8 +52,8 @@ public class AesUtil {
 	public static byte[] encrypt(byte[] content, byte[] aesKey) {
 		Assert.isTrue(aesKey.length == 32, "IllegalAesKey, aesKey's length must be 32");
 		try {
-			Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
-			SecretKeySpec keySpec = new SecretKeySpec(aesKey, "AES");
+			Cipher cipher = Cipher.getInstance(ALGORITHM_NO_PADDING);
+			SecretKeySpec keySpec = new SecretKeySpec(aesKey, ALGORITHM);
 			IvParameterSpec iv = new IvParameterSpec(aesKey, 0, 16);
 			cipher.init(Cipher.ENCRYPT_MODE, keySpec, iv);
 			return cipher.doFinal(Pkcs7Encoder.encode(content));
@@ -61,14 +65,45 @@ public class AesUtil {
 	public static byte[] decrypt(byte[] encrypted, byte[] aesKey) {
 		Assert.isTrue(aesKey.length == 32, "IllegalAesKey, aesKey's length must be 32");
 		try {
-			Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
-			SecretKeySpec keySpec = new SecretKeySpec(aesKey, "AES");
+			Cipher cipher = Cipher.getInstance(ALGORITHM_NO_PADDING);
+			SecretKeySpec keySpec = new SecretKeySpec(aesKey, ALGORITHM);
 			IvParameterSpec iv = new IvParameterSpec(Arrays.copyOfRange(aesKey, 0, 16));
 			cipher.init(Cipher.DECRYPT_MODE, keySpec, iv);
 			return Pkcs7Encoder.decode(cipher.doFinal(encrypted));
 		} catch (Exception e) {
 			throw Exceptions.unchecked(e);
 		}
+	}
+
+	/**
+	 * AES加密
+	 *
+	 * @param encrypted
+	 * @return
+	 * @throws Exception
+	 */
+	public static byte[] encryptData(byte[] encrypted, String secret) throws Exception {
+		SecretKeySpec key = new SecretKeySpec(secret.toLowerCase().getBytes(), ALGORITHM);
+
+		// 创建密码器
+		Cipher cipher = Cipher.getInstance(ALGORITHM_MODE_PADDING);
+		// 初始化
+		cipher.init(Cipher.ENCRYPT_MODE, key);
+		return cipher.doFinal(Pkcs7Encoder.encode(encrypted));
+	}
+
+	/**
+	 * AES解密
+	 *
+	 * @param base64Data
+	 * @return
+	 * @throws Exception
+	 */
+	public static byte[] decryptData(byte[] base64Data, String secret) throws Exception {
+		SecretKeySpec key = new SecretKeySpec(secret.toLowerCase().getBytes(), ALGORITHM);
+		Cipher cipher = Cipher.getInstance(ALGORITHM_MODE_PADDING);
+		cipher.init(Cipher.DECRYPT_MODE, key);
+		return Pkcs7Encoder.decode(cipher.doFinal(base64Data));
 	}
 
 	/**
