@@ -13,6 +13,9 @@ import java.util.Map;
 
 /**
  * @author <a href="mailto:areyouok@gmail.com">huangli</a>
+ *
+ *
+ * 缓冲全局配置
  */
 public class GlobalCacheConfig implements InitializingBean, DisposableBean {
 

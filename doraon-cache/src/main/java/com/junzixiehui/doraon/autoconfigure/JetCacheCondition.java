@@ -14,6 +14,8 @@ import java.util.stream.Collectors;
  * Created on 2016/11/28.
  *
  * @author <a href="mailto:areyouok@gmail.com">huangli</a>
+ *
+ * 根据配置 匹配缓冲类型
  */
 public abstract class JetCacheCondition extends SpringBootCondition {
 

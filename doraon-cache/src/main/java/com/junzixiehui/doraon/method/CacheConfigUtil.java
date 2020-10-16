@@ -21,6 +21,12 @@ import java.util.concurrent.TimeUnit;
  * @author <a href="mailto:areyouok@gmail.com">huangli</a>
  */
 public class CacheConfigUtil {
+
+	/**
+	 * @description: 解析方法注解配置
+	 * @date: 14:20 2020/10/16
+	 * @return:
+	 */
     private static CachedAnnoConfig parseCached(Method m) {
         Cached anno = m.getAnnotation(Cached.class);
         if (anno == null) {

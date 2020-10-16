@@ -19,6 +19,8 @@ import java.util.stream.Collectors;
  * Created on 2016/10/31.
  *
  * @author <a href="mailto:areyouok@gmail.com">huangli</a>
+ *
+ * 默认缓冲统计管理
  */
 public class DefaultCacheMonitorManager {
     private static final Logger logger = LoggerFactory.getLogger(DefaultCacheMonitorManager.class);

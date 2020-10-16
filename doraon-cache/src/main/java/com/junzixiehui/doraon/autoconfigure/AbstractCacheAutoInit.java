@@ -46,6 +46,8 @@ public abstract class AbstractCacheAutoInit implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() {
+
+    	//双重加锁机制
         if (!inited) {
             synchronized (this) {
                 if (!inited) {

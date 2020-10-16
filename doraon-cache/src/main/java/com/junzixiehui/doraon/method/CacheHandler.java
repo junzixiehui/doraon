@@ -19,6 +19,9 @@ import java.util.function.Supplier;
 
 /**
  * @author <a href="mailto:areyouok@gmail.com">huangli</a>
+ *
+ * 拦截缓冲处理器类
+ *
  */
 public class CacheHandler implements InvocationHandler {
     private static Logger logger = LoggerFactory.getLogger(CacheHandler.class);
