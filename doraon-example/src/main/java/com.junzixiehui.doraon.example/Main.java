@@ -1,7 +1,11 @@
 package com.junzixiehui.doraon.example;
 
 
+import com.junzixiehui.doraon.aop.config.EnableCreateCacheAnnotation;
+import com.junzixiehui.doraon.aop.config.EnableMethodCache;
 import com.junzixiehui.doraon.business.util.EnvHelper;
+import com.junzixiehui.doraon.example.cache.springboot.MyService;
+import com.junzixiehui.doraon.example.cache.springboot.SpringBootApp;
 import com.junzixiehui.doraon.util.ip.IPUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
@@ -16,7 +20,8 @@ import org.springframework.util.StringUtils;
  */
 @SpringBootApplication(scanBasePackages = {"com.junzixiehui.doraon.example"})
 @EnableAspectJAutoProxy(proxyTargetClass = true, exposeProxy = true)
-@Slf4j
+@EnableMethodCache(basePackages = "com.junzixiehui.doraon.example")
+@EnableCreateCacheAnnotation
 public class Main {
     public static final String APPLICATION_NAME = System.getProperty("spring.application.name");
 
@@ -29,6 +34,11 @@ public class Main {
         String[] activeProfiles = context.getEnvironment().getActiveProfiles();
         String active = StringUtils.arrayToCommaDelimitedString(activeProfiles);
         EnvHelper.setActive(active);
-        log.info("========当前环境:" + active + "|http://" + IPUtils.getLocalIpv4() + ":" + "8943");
+        //log.info("========当前环境:" + active + "|http://" + IPUtils.getLocalIpv4() + ":" + "8943");
+
+
+		MyService myService = context.getBean(MyService.class);
+		myService.createCacheDemo();
+		myService.cachedDemo();
     }
 }

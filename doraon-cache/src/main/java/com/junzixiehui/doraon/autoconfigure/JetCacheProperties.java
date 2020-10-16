@@ -7,7 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  *
  * @author <a href="mailto:areyouok@gmail.com">huangli</a>
  */
-@ConfigurationProperties(prefix = "jetcache")
+@ConfigurationProperties(prefix = "doraonCache")
 public class JetCacheProperties {
 
     private String[] hiddenPackages;

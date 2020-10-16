@@ -27,7 +27,7 @@ public abstract class JetCacheCondition extends SpringBootCondition {
 
     @Override
     public ConditionOutcome getMatchOutcome(ConditionContext conditionContext, AnnotatedTypeMetadata annotatedTypeMetadata) {
-        ConfigTree ct = new ConfigTree((ConfigurableEnvironment) conditionContext.getEnvironment(), "jetcache.");
+        ConfigTree ct = new ConfigTree((ConfigurableEnvironment) conditionContext.getEnvironment(), "doraonCache.");
         if (match(ct, "local.") || match(ct, "remote.")) {
             return ConditionOutcome.match();
         } else {

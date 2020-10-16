@@ -49,8 +49,8 @@ public abstract class AbstractCacheAutoInit implements InitializingBean {
         if (!inited) {
             synchronized (this) {
                 if (!inited) {
-                    process("jetcache.local.", autoConfigureBeans.getLocalCacheBuilders(), true);
-                    process("jetcache.remote.", autoConfigureBeans.getRemoteCacheBuilders(), false);
+                    process("doraonCache.local.", autoConfigureBeans.getLocalCacheBuilders(), true);
+                    process("doraonCache.remote.", autoConfigureBeans.getRemoteCacheBuilders(), false);
                     inited = true;
                 }
             }
