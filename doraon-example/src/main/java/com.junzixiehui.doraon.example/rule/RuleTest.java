@@ -1,4 +1,4 @@
-package com.junzixiehui.doraon.rule.test;
+package com.junzixiehui.doraon.example.rule;
 
 import org.jeasy.rules.api.Facts;
 import org.jeasy.rules.api.Rules;

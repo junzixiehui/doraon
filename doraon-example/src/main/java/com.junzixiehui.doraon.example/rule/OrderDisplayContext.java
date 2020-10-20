@@ -1,4 +1,4 @@
-package com.junzixiehui.doraon.rule.test;
+package com.junzixiehui.doraon.example.rule;
 
 import lombok.Data;
 
