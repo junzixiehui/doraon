@@ -8,18 +8,14 @@
 package com.junzixiehui.doraon.business.event.custom.boot;
 
 
-
+import com.junzixiehui.doraon.business.common.constant.DoraonConstant;
 import com.junzixiehui.doraon.business.event.Event;
-import com.junzixiehui.doraon.business.event.custom.constant.CoreConstant;
 import com.junzixiehui.doraon.business.event.custom.event.EventHandlerI;
 import com.junzixiehui.doraon.business.event.custom.event.EventHub;
-import com.junzixiehui.doraon.business.event.custom.exception.InfraException;
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
+import com.junzixiehui.doraon.util.exception.ServiceException;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.lang.reflect.Method;
 
 /**
@@ -28,41 +24,40 @@ import java.lang.reflect.Method;
  * @author shawnzhan.zxy
  * @date 2017/11/20
  */
-@SuppressWarnings({ "rawtypes", "unchecked" })
 @Component
-public class EventRegister implements RegisterI, ApplicationContextAware {
+public class EventRegister {
 
-    @Autowired
+    @Resource
     private EventHub eventHub;
-
-    private ApplicationContext applicationContext;
-
-    @Override
-    public void doRegistration(Class<?> targetClz) {
-        Class<? extends Event> eventClz = getEventFromExecutor(targetClz);
-        EventHandlerI executor = (EventHandlerI) applicationContext.getBean(targetClz);
-        eventHub.register(eventClz, executor);
-    }
 
     private Class<? extends Event> getEventFromExecutor(Class<?> eventExecutorClz) {
         Method[] methods = eventExecutorClz.getDeclaredMethods();
         for (Method method : methods) {
-            Class<?>[] exeParams = method.getParameterTypes();
-            /**
-             * This is for return right response type on exception scenarios
-             */
-            if (CoreConstant.EXE_METHOD.equals(method.getName()) && exeParams.length == 1
-                && Event.class.isAssignableFrom(exeParams[0]) && !method.isBridge()) {
-                eventHub.getResponseRepository().put(exeParams[0], method.getReturnType());
-                return (Class<? extends Event>) exeParams[0];
+            if (isExecuteMethod(method)){
+                return checkAndGetEventParamType(method);
             }
         }
-        throw new InfraException("Event param in " + eventExecutorClz + " "
+        throw new ServiceException("Event param in " + eventExecutorClz + " " + DoraonConstant.EXE_METHOD
                                  + "() is not detected");
     }
 
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        this.applicationContext = applicationContext;
+    public void doRegistration(EventHandlerI eventHandler){
+        Class<? extends Event> eventClz = getEventFromExecutor(eventHandler.getClass());
+        eventHub.register(eventClz, eventHandler);
+    }
+
+    private boolean isExecuteMethod(Method method){
+        return DoraonConstant.EXE_METHOD.equals(method.getName()) && !method.isBridge();
+    }
+
+    private Class checkAndGetEventParamType(Method method){
+        Class<?>[] exeParams = method.getParameterTypes();
+        if (exeParams.length == 0){
+            throw new ServiceException("Execute method in "+method.getDeclaringClass()+" should at least have one parameter");
+        }
+        if(!Event.class.isAssignableFrom(exeParams[0]) ){
+            throw new ServiceException("Execute method in "+method.getDeclaringClass()+" should be the subClass of Event");
+        }
+        return exeParams[0];
     }
 }
