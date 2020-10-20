@@ -22,6 +22,7 @@
         <module>doraon-test</module>
         <module>doraon-example</module>
         <module>doraon-cache</module>
+        <module>doraon-rules</module>
     </modules>
 
     <properties>
