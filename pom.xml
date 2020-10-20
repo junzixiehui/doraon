@@ -23,6 +23,7 @@
         <module>doraon-example</module>
         <module>doraon-cache</module>
         <module>doraon-rules</module>
+        <module>doraon-statemachine</module>
     </modules>
 
     <properties>
