@@ -1,13 +1,12 @@
 package com.junzixiehui.doraon.business.event.custom.event;
 
-
 import com.junzixiehui.doraon.business.event.Event;
-import com.junzixiehui.doraon.business.event.custom.exception.InfraException;
-import lombok.Getter;
-import lombok.Setter;
+import com.junzixiehui.doraon.util.exception.ServiceException;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,35 +15,48 @@ import java.util.Map;
 @SuppressWarnings("rawtypes")
 @Component
 public class EventHub {
-    @Getter
-    @Setter
-    private Map<Class, EventHandlerI> eventRepository = new HashMap<>();
-    
-    @Getter
-    private Map<Class, Class> responseRepository = new HashMap<>();
-    
-    public EventHandlerI getEventHandler(Class eventClass) {
-        EventHandlerI eventHandlerI = findHandler(eventClass);
-        if (eventHandlerI == null) {
-            throw new InfraException(eventClass + "is not registered in eventHub, please register first");
-        }
-        return eventHandlerI;
-    }
 
-    /**
-     * 注册事件
-     * @param eventClz
-     * @param executor
-     */
-    public void register(Class<? extends Event> eventClz, EventHandlerI executor){
-        eventRepository.put(eventClz, executor);
-    }
+	private HashMap<Class, List<EventHandlerI>> eventRepository = new HashMap<>();
+	private Map<Class, Class> responseRepository = new HashMap<>();
 
-    private EventHandlerI findHandler(Class<? extends Event> eventClass){
-        EventHandlerI eventHandlerI = null;
-        Class cls = eventClass;
-        eventHandlerI = eventRepository.get(cls);
-        return eventHandlerI;
-    }
+	public HashMap<Class, List<EventHandlerI>> getEventRepository() {
+		return eventRepository;
+	}
 
+	public void setEventRepository(HashMap<Class, List<EventHandlerI>> eventRepository) {
+		this.eventRepository = eventRepository;
+	}
+
+	public Map<Class, Class> getResponseRepository() {
+		return responseRepository;
+	}
+
+	public List<EventHandlerI> getEventHandler(Class eventClass) {
+		List<EventHandlerI> eventHandlerIList = findHandler(eventClass);
+		if (eventHandlerIList == null || eventHandlerIList.size() == 0) {
+			throw new ServiceException(eventClass + "is not registered in eventHub, please register first");
+		}
+		return eventHandlerIList;
+	}
+
+	/**
+	 * 注册事件
+	 * @param eventClz
+	 * @param executor
+	 */
+	public void register(Class<? extends Event> eventClz, EventHandlerI executor) {
+		List<EventHandlerI> eventHandlers = eventRepository.get(eventClz);
+		if (eventHandlers == null) {
+			eventHandlers = new ArrayList<>();
+			eventRepository.put(eventClz, eventHandlers);
+		}
+		eventHandlers.add(executor);
+	}
+
+	private List<EventHandlerI> findHandler(Class<? extends Event> eventClass) {
+		List<EventHandlerI> eventHandlerIList = null;
+		Class cls = eventClass;
+		eventHandlerIList = eventRepository.get(cls);
+		return eventHandlerIList;
+	}
 }
