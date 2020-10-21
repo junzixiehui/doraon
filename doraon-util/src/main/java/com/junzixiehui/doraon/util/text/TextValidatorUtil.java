@@ -79,7 +79,13 @@ public class TextValidatorUtil {
 	private static final Pattern PATTERN_REGEX_DATE = Pattern.compile(REGEX_DATE);
 
 	/**
-	 * 正则：yyyy-MM-dd 格式的日期校验
+	 * 正则：yyyy/MM/dd格式的日期校验，已考虑平闰年
+	 */
+	private static final String REGEX_DATE_SLASH = "^(?:(?!0000)[0-9]{4}/(?:(?:0[1-9]|1[0-2])/(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])/(?:29|30)|(?:0[13578]|1[02])/31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$";
+	private static final Pattern PATTERN_REGEX_DATE_SLASH = Pattern.compile(REGEX_DATE_SLASH);
+
+	/**
+	 * 正则：yyyy-MM-dd HH:mm:ss格式的日期校验
 	 */
 	private static final String REGEX_DATE_TIME = "([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3})-(((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01]))|((0[469]|11)-(0[1-9]|[12][0-9]|30))|(02-(0[1-9]|[1][0-9]|2[0-8])))\\s([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])";
 	private static final Pattern PATTERN_REGEX_DATE_TIME = Pattern.compile(REGEX_DATE_TIME);
@@ -138,6 +144,13 @@ public class TextValidatorUtil {
 	 */
 	public static boolean isDate(@Nullable CharSequence input) {
 		return isMatch(PATTERN_REGEX_DATE, input);
+	}
+
+	/**
+	 * 验证yyyy/MM/dd格式的日期校验，已考虑平闰年
+	 */
+	public static boolean isDateSlash(@Nullable CharSequence input) {
+		return isMatch(PATTERN_REGEX_DATE_SLASH, input);
 	}
 
 	/**
