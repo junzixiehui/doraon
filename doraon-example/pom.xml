@@ -107,17 +107,11 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
         </dependency>
-
-
         <dependency>
-            <groupId>org.jeasy</groupId>
-            <artifactId>easy-rules-core</artifactId>
-            <version>3.4.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jeasy</groupId>
-            <artifactId>easy-rules-mvel</artifactId>
-            <version>3.4.0</version>
+            <groupId>com.junzixiehui</groupId>
+            <artifactId>doraon-rules</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
 
 

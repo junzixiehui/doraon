@@ -1,6 +1,6 @@
 package com.junzixiehui.doraon.example.rule;
 
-import org.jeasy.rules.annotation.*;
+import com.junzixiehui.doraon.rule.annotation.*;
 
 /**
  * <p>Description: </p>

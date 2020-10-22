@@ -1,10 +1,9 @@
 package com.junzixiehui.doraon.example.rule;
 
-import org.jeasy.rules.annotation.Action;
-import org.jeasy.rules.annotation.Fact;
-import org.jeasy.rules.annotation.Rule;
-import org.jeasy.rules.support.ActivationRuleGroup;
-import org.jeasy.rules.support.UnitRuleGroup;
+import com.junzixiehui.doraon.rule.annotation.Action;
+import com.junzixiehui.doraon.rule.annotation.Fact;
+import com.junzixiehui.doraon.rule.annotation.Rule;
+import com.junzixiehui.doraon.rule.support.composite.ActivationRuleGroup;
 
 /**
  * <p>Description:

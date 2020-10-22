@@ -1,10 +1,11 @@
 package com.junzixiehui.doraon.example.rule;
 
-import org.jeasy.rules.api.Facts;
-import org.jeasy.rules.api.Rules;
-import org.jeasy.rules.api.RulesEngine;
-import org.jeasy.rules.core.DefaultRulesEngine;
-import org.jeasy.rules.core.RulesEngineParameters;
+import com.junzixiehui.doraon.rule.api.Facts;
+import com.junzixiehui.doraon.rule.api.Rules;
+import com.junzixiehui.doraon.rule.api.RulesEngine;
+import com.junzixiehui.doraon.rule.api.RulesEngineParameters;
+import com.junzixiehui.doraon.rule.core.DefaultRulesEngine;
+
 
 /**
  * <p>Description: </p>
