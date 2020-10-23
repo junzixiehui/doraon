@@ -13,7 +13,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 /**
  * @author <a href="mailto:areyouok@gmail.com">huangli</a>
  */
-@SpringBootApplication
+/*@SpringBootApplication
 @EnableMethodCache(basePackages = "com.junzixiehui.doraon.example")
 @EnableCreateCacheAnnotation
 public class SpringBootApp {
@@ -24,4 +24,4 @@ public class SpringBootApp {
         myService.createCacheDemo();
         myService.cachedDemo();
     }
-}
+}*/

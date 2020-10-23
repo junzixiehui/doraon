@@ -9,7 +9,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  *
  * 读取缓冲全局配置 application.yml
  */
-@ConfigurationProperties(prefix = "doraonCache")
+@ConfigurationProperties(prefix = "doraoncache")
 public class JetCacheProperties {
 
     private String[] hiddenPackages;

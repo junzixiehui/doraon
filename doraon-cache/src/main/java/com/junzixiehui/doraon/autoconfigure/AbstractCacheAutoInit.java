@@ -51,8 +51,8 @@ public abstract class AbstractCacheAutoInit implements InitializingBean {
         if (!inited) {
             synchronized (this) {
                 if (!inited) {
-                    process("doraonCache.local.", autoConfigureBeans.getLocalCacheBuilders(), true);
-                    process("doraonCache.remote.", autoConfigureBeans.getRemoteCacheBuilders(), false);
+                    process("doraoncache.local.", autoConfigureBeans.getLocalCacheBuilders(), true);
+                    process("doraoncache.remote.", autoConfigureBeans.getRemoteCacheBuilders(), false);
                     inited = true;
                 }
             }

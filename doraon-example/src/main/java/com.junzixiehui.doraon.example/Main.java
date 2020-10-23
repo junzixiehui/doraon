@@ -1,13 +1,9 @@
 package com.junzixiehui.doraon.example;
 
-
 import com.junzixiehui.doraon.aop.config.EnableCreateCacheAnnotation;
 import com.junzixiehui.doraon.aop.config.EnableMethodCache;
 import com.junzixiehui.doraon.business.util.EnvHelper;
 import com.junzixiehui.doraon.example.cache.springboot.MyService;
-import com.junzixiehui.doraon.example.cache.springboot.SpringBootApp;
-import com.junzixiehui.doraon.util.ip.IPUtils;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -18,7 +14,7 @@ import org.springframework.util.StringUtils;
  * 应用启动类
  * @date 2018/3/5
  */
-@SpringBootApplication(scanBasePackages = {"com.junzixiehui.doraon.example"})
+@SpringBootApplication
 @EnableAspectJAutoProxy(proxyTargetClass = true, exposeProxy = true)
 @EnableMethodCache(basePackages = "com.junzixiehui.doraon.example")
 @EnableCreateCacheAnnotation
