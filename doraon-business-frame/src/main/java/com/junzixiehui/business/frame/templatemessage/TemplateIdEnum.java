@@ -7,7 +7,7 @@ import com.junzixiehui.business.frame.templatemessage.weixin.WeiXinTemplateIdEnu
 
 /**
  * <p>Description: </p>
- * @author: by qulibin
+ * @author: by jxll
  * @date: 2019/9/26  15:51
  * @version: 1.0
  */

@@ -2,7 +2,7 @@ package com.junzixiehui.doraon.util.geography;
 
 /**
  * <p>Description: 距离工具</p>
- * @author: by qulibin
+ * @author: by jxll
  * @date: 2020/3/22  9:51 PM
  * @version: 1.0
  */
@@ -15,7 +15,7 @@ public class DistanceUtil {
 	}
 
 	/**
-	 * @author: qulibin
+	 * @author: jxll
 	 * @description:
 	 * @date: 9:52 PM 2020/3/22
 	 * @return: 单位米

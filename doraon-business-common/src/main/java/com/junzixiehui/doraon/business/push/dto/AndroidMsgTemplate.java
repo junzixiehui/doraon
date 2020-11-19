@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * <p>Description: android消息模板</p>
- * @author: by qulibin
+ * @author: by jxll
  * @date: 2Da9/9/9  11:00
  * @version: 1.0
  */

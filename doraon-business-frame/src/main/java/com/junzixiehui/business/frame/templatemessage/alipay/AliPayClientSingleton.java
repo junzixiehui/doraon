@@ -11,17 +11,17 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * <p>Description: </p>
- * @author: by qulibin
+ * @author: by jxll
  * @date: 2018/10/30  3:05 PM
  * @version: 1.0
  */
 @Component
 public class AliPayClientSingleton {
 
-	private static final String appId = ""/*EdaijiaContext.configContext.getString("AliPay.appId")*/;
-	private static final String aliPayUrl = ""/*EdaijiaContext.configContext.getString("AliPay.aliPayUrl")*/;
-	private static final String appPrivateKey = ""/*EdaijiaContext.configContext.getString("AliPay.appPrivateKey")*/;
-	private static final String aliPayPublicKey = ""/*EdaijiaContext.configContext.getString("AliPay.aliPayPublicKey")*/;
+	private static final String appId = ""/*ApplicationContext.configContext.getString("AliPay.appId")*/;
+	private static final String aliPayUrl = ""/*ApplicationContext.configContext.getString("AliPay.aliPayUrl")*/;
+	private static final String appPrivateKey = ""/*ApplicationContext.configContext.getString("AliPay.appPrivateKey")*/;
+	private static final String aliPayPublicKey = ""/*ApplicationContext.configContext.getString("AliPay.aliPayPublicKey")*/;
 
 	private static String DEFAULT = "default";
 

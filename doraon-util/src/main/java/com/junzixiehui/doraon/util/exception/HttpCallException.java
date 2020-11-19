@@ -2,7 +2,7 @@ package com.junzixiehui.doraon.util.exception;
 
 /**
  * <p>Description: </p>
- * @author: by qulibin
+ * @author: by jxll
  * @date: 2020/5/3  7:39 PM
  * @version: 1.0
  */

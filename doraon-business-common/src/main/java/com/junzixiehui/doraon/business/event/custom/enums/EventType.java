@@ -3,7 +3,7 @@ package com.junzixiehui.doraon.business.event.custom.enums;
 import lombok.Getter;
 
 /**
- * @author: qulibin
+ * @author: jxll
  * @description:
  * @date: 16:50 2018/4/16
  * @modify：

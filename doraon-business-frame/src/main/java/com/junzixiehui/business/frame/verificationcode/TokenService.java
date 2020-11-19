@@ -16,7 +16,7 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author: qulibin
+ * @author: jxll
  * @description: token服务
  * @date: 上午11:18 2018/8/31
  * @modify：
@@ -31,7 +31,7 @@ public class TokenService {
     /**
      * @param phone          手机号
      * @param clientUniqueId 业务客户端唯一标识
-     * @author: qulibin
+     * @author: jxll
      * @description: 生成token
      * @date: 下午5:22 2018/8/31
      * @return:

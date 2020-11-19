@@ -10,7 +10,7 @@ import com.junzixiehui.doraon.rule.support.composite.UnitRuleGroup;
  *
  * UnitRuleGroup: 只要有一个规则不满足，就不执行
  * </p>
- * @author: by qulibin
+ * @author: by jxll
  * @date: 2020/10/20  10:34
  * @version: 1.0
  */

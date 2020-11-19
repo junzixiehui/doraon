@@ -5,7 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * <p>Description: 业务日志统一</p>
- * @author: by qulibin
+ * @author: by jxll
  * @date: 2019/5/29  18:05
  * @version: 1.0
  */

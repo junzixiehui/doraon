@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * <p>Description: 验证码工具类</p>
  *
- * @author: by qulibin
+ * @author: by jxll
  * @date: 2018/9/3  下午5:09
  * @version: 1.0
  */

@@ -7,7 +7,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 /**
- * @author: qulibin
+ * @author: jxll
  * @description:
  * @date: 下午7:40 2018/9/3
  * @modify：

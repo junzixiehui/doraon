@@ -5,15 +5,15 @@ import lombok.Getter;
 
 public enum GaoDeTemplateIdEnum {
 
-	DRIVER_IN_PLACE("302", "OGI1YmFiMTJkNzk2MmM0ZGY1ZGVjYzZjNWNhZDdlYWY=", "pages/index/index"),
-	ORDER_FAIL_405("405", "YWRjNjhkNzgwMDIwYjNjOTgzNWY0N2YwYjFmNjFlNzg=", "pages/index/index"),
-	ORDER_FAIL_406("406", "YWRjNjhkNzgwMDIwYjNjOTgzNWY0N2YwYjFmNjFlNzg=", "pages/index/index"),
-	ORDER_FAIL_506("506", "YWRjNjhkNzgwMDIwYjNjOTgzNWY0N2YwYjFmNjFlNzg=", "pages/index/index"),
-	DRIVER_CANCEL_ORDER_505("505", "MmMzM2M3MzFjMmVkMzVmYzRhZWJmMjMxOTJmYmE4Mjc=", "pages/index/index"),
-	REPORT_ORDER_501("501", "NmYxYTUzNWI5YmNhMGUxMWRkYWZhNDllNWU5MTMwNjg=", "pages/index/index"),
-	EVALUATION_ORDER(TemplateMessageConstant.STATUS_EVALUATION_ORDER, "YjhlODcyZDNmZGNmYTY4YTdiZDE2MzM2OGU5ZWUwNGQ=", "pages/index/index"),
-	PAY_COMPLETE(TemplateMessageConstant.STATUS_PAY_COMPLETE, "OTc4ZTMwODlkMmY3OGI0MmEyODYxYTJjZDljOWQzNjc=", "pages/index/index"),
-	CANCEL_PAY_COMPLETE(TemplateMessageConstant.STATUS_CANCEL_PAY_COMPLETE, "OTc4ZTMwODlkMmY3OGI0MmEyODYxYTJjZDljOWQzNjc=", "pages/index/index");
+	DRIVER_IN_PLACE("302", "xx=", "pages/index/index"),
+	ORDER_FAIL_405("405", "xx=", "pages/index/index"),
+	ORDER_FAIL_406("406", "xx=", "pages/index/index"),
+	ORDER_FAIL_506("506", "xx=", "pages/index/index"),
+	DRIVER_CANCEL_ORDER_505("505", "xx=", "pages/index/index"),
+	REPORT_ORDER_501("501", "xx=", "pages/index/index"),
+	EVALUATION_ORDER(TemplateMessageConstant.STATUS_EVALUATION_ORDER, "xx=", "pages/index/index"),
+	PAY_COMPLETE(TemplateMessageConstant.STATUS_PAY_COMPLETE, "xx=", "pages/index/index"),
+	CANCEL_PAY_COMPLETE(TemplateMessageConstant.STATUS_CANCEL_PAY_COMPLETE, "xx=", "pages/index/index");
 
 	GaoDeTemplateIdEnum(String code, String templateId, String page) {
 		this.code = code;

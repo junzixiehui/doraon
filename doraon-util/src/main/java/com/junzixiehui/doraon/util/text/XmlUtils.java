@@ -104,7 +104,7 @@ public class XmlUtils {
     }
 
     /**
-     * @author: qulibin
+     * @author: jxll
      * @description: xml转map xml含有集合
      * @date: 5:49 PM 2018/11/28
      * @return:

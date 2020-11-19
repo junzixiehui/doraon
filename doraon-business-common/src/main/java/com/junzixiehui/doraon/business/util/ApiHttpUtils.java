@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Map;
 
 /**
- * @author: qulibin
+ * @author: jxll
  * @date: 下午7:57 2018/9/6
  * @modify：
  */
@@ -27,7 +27,7 @@ public class ApiHttpUtils {
 	private HttpClientUtils httpClientUtils;
 
 	/**
-	 * @author: qulibin
+	 * @author: jxll
 	 * @description: 调用api接口
 	 * @date: 下午3:23 2018/9/28
 	 * @return:

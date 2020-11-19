@@ -3,7 +3,7 @@ package com.junzixiehui.doraon.business.util;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * @author: qulibin
+ * @author: jxll
  * @description: 环境变量
  * @date: 下午1:23 2018/9/5
  * @modify：

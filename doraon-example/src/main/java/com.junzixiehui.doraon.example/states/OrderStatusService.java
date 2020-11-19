@@ -9,7 +9,7 @@ import org.junit.Assert;
 
 /**
  * <p>Description: </p>
- * @author: by qulibin
+ * @author: by jxll
  * @date: 2020/10/20  16:54
  * @version: 1.0
  */
@@ -46,7 +46,7 @@ public class OrderStatusService {
 
 
 	/**
-	 * @author: qulibin
+	 * @author: jxll
 	 * @description: 校验订单 校验司机
 	 * @date: 17:10 2020/10/20
 	 * @return:
@@ -60,7 +60,7 @@ public class OrderStatusService {
 	}
 
 	/**
-	 * @author: qulibin
+	 * @author: jxll
 	 * @description: 修改订单状态 记录等
 	 * @date: 17:30 2020/10/20
 	 * @return:

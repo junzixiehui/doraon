@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * <p>Description: zk访问客户端</p>
- * @author: by qulibin
+ * @author: by jxll
  * @date: 2019/4/12  10:13
  * @version: 1.0
  */
@@ -101,7 +101,7 @@ public class ZkCuratorClient {
 	}
 
 	/**
-	 * @author: qulibin
+	 * @author: jxll
 	 * @description: 直接从zk获取data
 	 * @date: 11:12 2019/4/12
 	 * @return:
@@ -116,7 +116,7 @@ public class ZkCuratorClient {
 	}
 
 	/**
-	 * @author: qulibin
+	 * @author: jxll
 	 * @description: 获取子节点列表
 	 * @date: 11:14 2019/4/12
 	 * @return:
@@ -138,7 +138,7 @@ public class ZkCuratorClient {
 	}
 
 	/**
-	 * @author: qulibin
+	 * @author: jxll
 	 * @description: 获取子节点数量
 	 * @date: 11:13 2019/4/12
 	 * @return:

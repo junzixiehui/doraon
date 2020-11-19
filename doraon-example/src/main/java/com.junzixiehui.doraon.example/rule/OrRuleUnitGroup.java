@@ -9,7 +9,7 @@ import com.junzixiehui.doraon.rule.support.composite.ActivationRuleGroup;
  * <p>Description:
  *
  * </p>
- * @author: by qulibin
+ * @author: by jxll
  * @date: 2020/10/20  10:34
  * @version: 1.0
  */

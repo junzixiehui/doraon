@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author: qulibin
+ * @author: jxll
  * @description: 验证码服务 - 校验一个独立服务的单一职责原则 就是看他引用外部的引用
  * @date: 上午11:18 2018/8/31
  * @modify：
@@ -30,7 +30,7 @@ public class VerifyCodeService {
     private RedisTemplateWarpper redisTemplateWarpper;
 
     /**
-     * @author: qulibin
+     * @author: jxll
      * @description: 生成短信验证码
      * @date: 下午5:16 2018/9/3
      * @return:
@@ -91,7 +91,7 @@ public class VerifyCodeService {
     }
 
     /**
-     * @author: qulibin
+     * @author: jxll
      * @description: 校验验证码
      * @date: 9:25 PM 2020/3/5
      * @return:

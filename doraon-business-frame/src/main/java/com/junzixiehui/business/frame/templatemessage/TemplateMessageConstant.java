@@ -2,7 +2,7 @@ package com.junzixiehui.business.frame.templatemessage;
 
 /**
  * <p>Description: </p>
- * @author: by qulibin
+ * @author: by jxll
  * @date: 2019/9/23  14:16
  * @version: 1.0
  */

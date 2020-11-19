@@ -9,24 +9,19 @@ import com.junzixiehui.doraon.util.protocal.OkHttpUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
  * 微信常用接口
- * 之前在center中，因jar不好维护，提取出来
- * <p/>
  */
 @Slf4j
 public class WeixinUtils {
 
-	public static final String WX_MINI_APPID = ""/*EdaijiaContext.configContext.getString("wx_mini_appid")*/;
-	public static final String WX_MINI_SECRET = ""/*EdaijiaContext.configContext.getString("wx_mini_secret")*/;
+	public static final String WX_MINI_APPID = ""/*ApplicationContext.configContext.getString("wx_mini_appid")*/;
+	public static final String WX_MINI_SECRET = ""/*ApplicationContext.configContext.getString("wx_mini_secret")*/;
 	public static final String WEIXIN_MINI_PROGRAM_ACCESS_TOKEN_KEY = "WEIXIN_MINI_PROGRAM_ACCESS_TOKEN_KEY";
-	
+
 	public static String getWxMiniAccessToken() {
 		String token = "";
 		if (EnvHelper.isPro()) {
@@ -35,7 +30,7 @@ public class WeixinUtils {
 		} else {
 			try {
 				final String result = OkHttpUtil
-						.get("http://weixin.edaijia.cn/v1/api/weixin/miniProgramAccessToken", null);
+						.get("http://weixin.xxx.cn/v1/api/weixin/miniProgramAccessToken", null);
 				if (StringUtils.isNotBlank(result)) {
 					final Map map = FastJson.jsonStr2Object(result, Map.class);
 					final Integer code = MapUtils.getInteger(map, "code", -1);
@@ -63,7 +58,7 @@ public class WeixinUtils {
 	}
 
 	/**
-	 * @author: qulibin
+	 * @author: jxll
 	 * @description: 生成微信小程序 access_token
 	 * @date: 18:03 2019/10/10
 	 * @return:

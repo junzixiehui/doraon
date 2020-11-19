@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * @author: qulibin
+ * @author: jxll
  * @description: 工具类来从Spring 容器中获取Bean,用于一些不方便采用注入的地方
  * @date: 2:47 PM 2020/3/12
  * @modify：

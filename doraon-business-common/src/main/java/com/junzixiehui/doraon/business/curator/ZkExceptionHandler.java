@@ -5,7 +5,7 @@ import org.apache.zookeeper.KeeperException;
 
 /**
  * <p>Description: </p>
- * @author: by qulibin
+ * @author: by jxll
  * @date: 2019/4/12  11:03
  * @version: 1.0
  */

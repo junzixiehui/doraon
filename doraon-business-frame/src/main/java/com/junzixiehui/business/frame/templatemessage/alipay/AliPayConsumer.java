@@ -15,7 +15,7 @@ import java.util.Map;
 
 /**
  * <p>Description: 访问支付宝 </p>
- * @author: by qulibin
+ * @author: by jxll
  * @date: 2018/10/30  2:57 PM
  * @version: 1.0
  */
@@ -27,7 +27,7 @@ public class AliPayConsumer {
 	private AliPayClientSingleton aliPayClientSingleton;
 
 	/**
-	 * @author: qulibin
+	 * @author: jxll
 	 * @description:
 	 * @param toUserId    String	是	触达消息的支付宝user_id。	2088102122458832
 	 * @param formId    String	是	用户发生的交易行为的交易号，或者用户在小程序产生表单提交的表单号，用于信息发送的校验。	2017010100000000580012345678
