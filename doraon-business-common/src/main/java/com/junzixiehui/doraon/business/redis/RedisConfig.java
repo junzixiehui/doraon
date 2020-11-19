@@ -2,12 +2,16 @@ package com.junzixiehui.doraon.business.redis;
 
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
+import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import redis.clients.jedis.JedisPoolConfig;
 
@@ -95,4 +99,10 @@ public class RedisConfig {
         redisTemplate.setConnectionFactory(jedisConnectionFactory);
         return redisTemplate;
     }
+
+	/*@Bean(name = "redisUtil")
+	@ConditionalOnBean(RedisTemplate.class)
+	public RedisUtil redisUtils(RedisTemplate<String, Object> objectRedisTemplate) {
+		return new RedisUtil(objectRedisTemplate);
+	}*/
 }
