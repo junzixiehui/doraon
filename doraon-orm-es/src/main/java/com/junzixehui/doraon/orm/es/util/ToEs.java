@@ -32,7 +32,7 @@ public class ToEs {
 	private static BoolQueryBuilder select(String sql) throws Exception {
 		Assert.hasLength(sql, "sql is wrong!");
 		String[] analyse = sql.trim().split("\\s");
-		logger.debug("analyse is " + analyse.toString());
+		logger.debug("analyse is " + analyse);
 		Assert.notEmpty(analyse, "{} is wrong!");
 		Assert.isTrue(analyse[0].toLowerCase().equals("select"), "not is select sql");
 		BoolQueryBuilder queryBuilder = boolQuery();
