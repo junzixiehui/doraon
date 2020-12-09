@@ -29,6 +29,7 @@
         <module>doraon-orm-es</module>
         <module>doraonde-signpattern</module>
         <module>doraon-designpattern</module>
+        <module>doraon-weinxin</module>
     </modules>
 
     <properties>

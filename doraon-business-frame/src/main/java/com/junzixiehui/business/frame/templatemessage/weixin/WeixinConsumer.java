@@ -69,23 +69,9 @@ public class WeixinConsumer {
         }
     }
 
-    public Resp getTemplateLibraryById(String userTemplateId) {
-        Map<String, Object> dataMap = Maps.newHashMapWithExpectedSize(1);
-        dataMap.put("id", userTemplateId);
-        try {
-            String res = postWithAccessToken("cgi-bin/wxopen/template/library/get", dataMap,
-                    WeixinUtils.getWxMiniAccessToken());
-            return Resp.success(res);
-        } catch (Exception e) {
-            log.error("getTemplateLibraryById error", e);
-            return Resp.error("-1", e.getMessage());
-        }
-    }
-
 	public static String postWithAccessToken(final String api, final Object param, String accessToken)
 			throws IOException {
 		OkHttpClient client = new OkHttpClient();
-		//client.interceptors().add(INTERCEPTOR);
 		final String url = "https://api.weixin.qq.com/" + api + "?access_token=" + accessToken;
 		final String postString = FastJson.object2JsonStr(param);
 		log.info("post weixin:{},param:{},response:{}", url, postString);

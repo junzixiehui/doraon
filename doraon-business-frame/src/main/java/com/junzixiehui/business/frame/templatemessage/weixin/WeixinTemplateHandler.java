@@ -26,7 +26,6 @@ public class WeixinTemplateHandler implements TemplateMessageHandler {
 	@Override
 	public Resp sendTemplateMessage(TemplateMessageReq templateMessageReq) {
 		final String userId = templateMessageReq.getUserId();
-//		final String formId = templateMessageReq.getFormId();
 		final String templateId = templateMessageReq.getTemplateId();
 		final Map<String, Object> data = templateMessageReq.getData();
 		final String page = templateMessageReq.getPage();
