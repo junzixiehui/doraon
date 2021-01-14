@@ -1,0 +1,28 @@
+server:
+  port: 8866
+
+debug: false
+
+spring:
+  profiles:
+    active: dev
+
+doraoncache:
+  statIntervalMinutes: 2
+  areaInCacheName: false
+  local:
+    default:
+      type: linkedhashmap
+      keyConvertor: fastjson
+  remote:
+    default:
+      type: redis
+      keyConvertor: fastjson
+      valueEncoder: java
+      valueDecoder: java
+      poolConfig:
+        minIdle: 5
+        maxIdle: 20
+        maxTotal: 50
+      host: 172.16.170.70
+      port: 6379

@@ -4,7 +4,7 @@ import com.junzixiehui.doraon.util.api.ErrorCode;
 
 /**
  * <p>Description: </p>
- * @author: by qulibin
+ * @author: by jxll
  * @date: 2020/5/3  7:30 PM
  * @version: 1.0
  */
@@ -33,6 +33,11 @@ public class ServiceException extends RuntimeException {
 	public ServiceException(ErrorCode errorCode, String appendMessage) {
 		super(String.format(errorCode.getMessage(), appendMessage == null ? "" : appendMessage));
 		this.code = errorCode.getCode();
+	}
+
+	public ServiceException(String code, String message) {
+		super(message);
+		this.code = code;
 	}
 
 	public ServiceException(ErrorCode errorCode, String appendMessage, Throwable cause) {

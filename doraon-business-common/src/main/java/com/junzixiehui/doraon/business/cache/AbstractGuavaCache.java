@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * <p>Description: guava 抽象缓冲</p>
- * @author: by qulibin
+ * @author: by jxll
  * @date: 2019/6/4  16:11
  * @version: 1.0
  */

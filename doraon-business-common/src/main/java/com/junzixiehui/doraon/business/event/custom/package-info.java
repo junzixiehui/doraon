@@ -1,5 +1,5 @@
 /**
- * @author: qulibin
+ * @author: jxll
  * @description:
  *
  * 使用前注入:
@@ -9,7 +9,7 @@
  * 	@Bean(name = "bootstrap", initMethod = "init")
  * 	public Bootstrap bootstrap() {
  * 		Bootstrap bootstrap = new Bootstrap();
- * 		bootstrap.setPackages(Lists.newArrayList("com.edaijia.*******"));
+ * 		bootstrap.setPackages(Lists.newArrayList("com.xxx.*******"));
  * 		return bootstrap;
  * 	}
  * }

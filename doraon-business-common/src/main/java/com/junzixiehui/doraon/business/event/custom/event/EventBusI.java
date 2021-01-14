@@ -17,4 +17,18 @@ public interface EventBusI {
      * @return Response
      */
     public Resp fire(Event event);
+
+	/**
+	 * fire all handlers which registed the event
+	 *
+	 * @param event
+	 * @return Response
+	 */
+	public Resp fireAll(Event event);
+
+	/**
+	 * Async fire all handlers
+	 * @param event
+	 */
+	public Resp asyncFire(Event event);
 }

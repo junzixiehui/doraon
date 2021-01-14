@@ -92,6 +92,7 @@ public class MultiResp<T> implements Serializable {
 		return !isSuccess();
 	}
 
+	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder("MultiResp{");
 		sb.append("code='").append(this.code).append('\'');

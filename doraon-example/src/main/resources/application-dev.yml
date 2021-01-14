@@ -1,0 +1,8 @@
+
+soul:
+  http:
+    adminUrl: http://127.0.0.1:9095
+    port: 8866
+    contextPath: /doraonservice
+    appName: doraon
+    full: false

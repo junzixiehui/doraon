@@ -1,0 +1,44 @@
+logging:
+  config: classpath:log4j2-stage.xml
+
+logTracer:
+  maxPrintLength:
+    singleParam: 1000
+    returnValue: 1000
+
+druid:
+  initialSize: 1
+  minIdle: 1
+  maxActive: 200
+  maxWait: 3000
+  useUnfairLock: true
+  timeBetweenEvictionRunsMillis: 60000
+  minEvictableIdleTimeMillis: 300000
+  poolPreparedStatements: false
+  maxPoolPreparedStatementPerConnectionSize: 50
+  validationQuery: SELECT 1
+  testWhileIdle: true
+  testOnBorrow: false
+  testOnReturn: false
+
+dataSource:
+  xxxDbMaster:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://xxx:3306/xxx?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false
+    username: xxx
+    password: xxx
+
+redis:
+  key:
+    prefix: ${spring.application.name}
+    maxLength: 80
+  hostName: rxxx
+  password: xxx
+  defaultDbIndex: 0
+  port: 6379
+  timeout: 1000
+  pool:
+    maxIdel: 100
+    maxTotal: 200
+    minIdel: 10
+    maxWaitMillis: 2000

@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  * <p>Description: </p>
- * @author: by qulibin
+ * @author: by jxll
  * @date: 2019/7/19  10:43
  * @version: 1.0
  */
@@ -46,7 +46,7 @@ public class EntityCodeGenerateUtils {
 
 	public static void main(String[] args) {
 
-		String packageOutPath = "com.edaijia.edipao.sys.domain.entity";//指定实体生成所在包的路径
+		String packageOutPath = "com.xxx.xxx.sys.domain.entity";//指定实体生成所在包的路径
 		String suffix = "Entity";
 		generateEntityCode("t_start_warehouse", packageOutPath, suffix);
 	}
