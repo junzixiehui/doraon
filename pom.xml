@@ -20,6 +20,8 @@
         <module>doraon-code-generate</module>
         <module>doraon-business-frame</module>
         <module>doraon-test</module>
+        <module>doraon-orm</module>
+        <module>doraon-cache</module>
     </modules>
 
     <properties>
