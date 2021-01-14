@@ -27,7 +27,7 @@
         <module>doraon-datacarrier</module>
         <module>doraon-orm-core</module>
         <module>doraon-orm-es</module>
-        <module>doraonde-signpattern</module>
+        <module>doraon-designpattern</module>
         <module>doraon-designpattern</module>
         <module>doraon-weinxin</module>
         <module>doraon-orm</module>
