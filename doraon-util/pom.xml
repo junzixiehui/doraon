@@ -20,7 +20,7 @@
         <maven_source_plugin_version>2.6</maven_source_plugin_version>
         <maven_compiler_plugin_version>3.1</maven_compiler_plugin_version>
 
-        <fastjson.version>1.2.39</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
     </properties>
 
     <dependencies>
