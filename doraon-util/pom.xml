@@ -15,7 +15,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <spring.version>4.3.14.RELEASE</spring.version>
+        <spring.version>6.0.0</spring.version>
         <!-- Maven插件版本定义 apache-maven-3.3.3版本默认版本插件版本 -->
         <maven_source_plugin_version>2.6</maven_source_plugin_version>
         <maven_compiler_plugin_version>3.1</maven_compiler_plugin_version>
